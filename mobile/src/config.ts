@@ -5,7 +5,7 @@
 // push; its URL is printed in the workflow log, and looks like
 //   https://fintrack-api.<your-subdomain>.workers.dev
 // Find your subdomain at dash.cloudflare.com -> Workers & Pages.
-export const API_URL = 'https://fintrack-api.YOUR-SUBDOMAIN.workers.dev';
+export const API_URL = 'https://fintrack-api.sudheerxforge.workers.dev';
 
 // One Worker serves everything (Gemini token, AI parsing, backup, receipts).
 export const BACKEND_URL = API_URL;
