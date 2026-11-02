@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "fintrack-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": true,
+  "observability": { "enabled": true },
+  // One private bucket holds receipts and cloud backups.
+  // Create it once:  npx wrangler r2 bucket create fintrack-data
+  "r2_buckets": [{ "binding": "BUCKET", "bucket_name": "fintrack-data" }],
+  // Max 60 requests per minute per IP.
+  "ratelimits": [
+    { "name": "RATE_LIMITER", "namespace_id": "2001", "simple": { "limit": 60, "period": 60 } },
+    { "name": "AI_LIMITER", "namespace_id": "2002", "simple": { "limit": 10, "period": 60 } },
+    { "name": "AUTH_LIMITER", "namespace_id": "2003", "simple": { "limit": 3, "period": 60 } }
+  ]
+  // Secrets (set by the GitHub workflow, or by hand):
+  //   npx wrangler secret put GEMINI_API_KEY
+  // For "Forgot PIN" emails (https://resend.com):  RESEND_API_KEY  (and optionally MAIL_FROM)
+  // Optional secret the app must send as X-App-Key:
+  //   npx wrangler secret put APP_KEY
+}

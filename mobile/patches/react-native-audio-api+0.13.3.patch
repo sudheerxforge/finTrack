@@ -1,0 +1,514 @@
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/.DS_Store b/node_modules/react-native-audio-api/android/src/main/jniLibs/.DS_Store
+new file mode 100644
+index 0000000..25f5068
+Binary files /dev/null and b/node_modules/react-native-audio-api/android/src/main/jniLibs/.DS_Store differ
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/libavcodec.so b/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/libavcodec.so
+new file mode 100644
+index 0000000..0b438f2
+Binary files /dev/null and b/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/libavcodec.so differ
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/libavformat.so b/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/libavformat.so
+new file mode 100644
+index 0000000..3c7f6fb
+Binary files /dev/null and b/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/libavformat.so differ
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/libavutil.so b/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/libavutil.so
+new file mode 100644
+index 0000000..b947844
+Binary files /dev/null and b/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/libavutil.so differ
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/libswresample.so b/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/libswresample.so
+new file mode 100644
+index 0000000..89c6f4b
+Binary files /dev/null and b/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/libswresample.so differ
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/pkgconfig/libavcodec.pc b/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/pkgconfig/libavcodec.pc
+new file mode 100644
+index 0000000..7b54ff1
+--- /dev/null
++++ b/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/pkgconfig/libavcodec.pc
+@@ -0,0 +1,14 @@
++prefix=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/arm64-v8a
++exec_prefix=${prefix}
++libdir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/arm64-v8a/lib
++includedir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/arm64-v8a/include
++
++Name: libavcodec
++Description: FFmpeg codec library
++Version: 62.11.100
++Requires: 
++Requires.private: libavutil >= 60.8.100
++Conflicts:
++Libs: -L${libdir}  -lavcodec 
++Libs.private: -pthread -lm -latomic
++Cflags: -I${includedir}
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/pkgconfig/libavformat.pc b/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/pkgconfig/libavformat.pc
+new file mode 100644
+index 0000000..f9580ef
+--- /dev/null
++++ b/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/pkgconfig/libavformat.pc
+@@ -0,0 +1,14 @@
++prefix=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/arm64-v8a
++exec_prefix=${prefix}
++libdir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/arm64-v8a/lib
++includedir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/arm64-v8a/include
++
++Name: libavformat
++Description: FFmpeg container format library
++Version: 62.3.100
++Requires: 
++Requires.private: libavcodec >= 62.11.100, libavutil >= 60.8.100
++Conflicts:
++Libs: -L${libdir}  -lavformat 
++Libs.private: -lm -latomic -lz -L/opt/homebrew/Cellar/openssl@3/3.6.0/lib -lssl -lcrypto
++Cflags: -I${includedir}
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/pkgconfig/libavutil.pc b/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/pkgconfig/libavutil.pc
+new file mode 100644
+index 0000000..87d9693
+--- /dev/null
++++ b/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/pkgconfig/libavutil.pc
+@@ -0,0 +1,14 @@
++prefix=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/arm64-v8a
++exec_prefix=${prefix}
++libdir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/arm64-v8a/lib
++includedir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/arm64-v8a/include
++
++Name: libavutil
++Description: FFmpeg utility library
++Version: 60.8.100
++Requires: 
++Requires.private: 
++Conflicts:
++Libs: -L${libdir}  -lavutil 
++Libs.private: -lm -L/opt/homebrew/Cellar/openssl@3/3.6.0/lib -lssl -lcrypto -latomic -landroid -lmediandk -pthread
++Cflags: -I${includedir}
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/pkgconfig/libswresample.pc b/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/pkgconfig/libswresample.pc
+new file mode 100644
+index 0000000..8586723
+--- /dev/null
++++ b/node_modules/react-native-audio-api/android/src/main/jniLibs/arm64-v8a/pkgconfig/libswresample.pc
+@@ -0,0 +1,14 @@
++prefix=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/arm64-v8a
++exec_prefix=${prefix}
++libdir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/arm64-v8a/lib
++includedir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/arm64-v8a/include
++
++Name: libswresample
++Description: FFmpeg audio resampling library
++Version: 6.1.100
++Requires: 
++Requires.private: libavutil >= 60.8.100
++Conflicts:
++Libs: -L${libdir}  -lswresample 
++Libs.private: -lm -latomic
++Cflags: -I${includedir}
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/libavcodec.so b/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/libavcodec.so
+new file mode 100644
+index 0000000..1fa49cd
+Binary files /dev/null and b/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/libavcodec.so differ
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/libavformat.so b/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/libavformat.so
+new file mode 100644
+index 0000000..589db7a
+Binary files /dev/null and b/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/libavformat.so differ
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/libavutil.so b/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/libavutil.so
+new file mode 100644
+index 0000000..24c7128
+Binary files /dev/null and b/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/libavutil.so differ
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/libswresample.so b/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/libswresample.so
+new file mode 100644
+index 0000000..0abbd42
+Binary files /dev/null and b/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/libswresample.so differ
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/pkgconfig/libavcodec.pc b/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/pkgconfig/libavcodec.pc
+new file mode 100644
+index 0000000..9049530
+--- /dev/null
++++ b/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/pkgconfig/libavcodec.pc
+@@ -0,0 +1,14 @@
++prefix=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/armeabi-v7a
++exec_prefix=${prefix}
++libdir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/armeabi-v7a/lib
++includedir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/armeabi-v7a/include
++
++Name: libavcodec
++Description: FFmpeg codec library
++Version: 62.11.100
++Requires: 
++Requires.private: libavutil >= 60.8.100
++Conflicts:
++Libs: -L${libdir}  -lavcodec 
++Libs.private: -pthread -lm -latomic
++Cflags: -I${includedir}
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/pkgconfig/libavformat.pc b/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/pkgconfig/libavformat.pc
+new file mode 100644
+index 0000000..bf30f4c
+--- /dev/null
++++ b/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/pkgconfig/libavformat.pc
+@@ -0,0 +1,14 @@
++prefix=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/armeabi-v7a
++exec_prefix=${prefix}
++libdir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/armeabi-v7a/lib
++includedir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/armeabi-v7a/include
++
++Name: libavformat
++Description: FFmpeg container format library
++Version: 62.3.100
++Requires: 
++Requires.private: libavcodec >= 62.11.100, libavutil >= 60.8.100
++Conflicts:
++Libs: -L${libdir}  -lavformat 
++Libs.private: -lm -latomic -lz -L/opt/homebrew/Cellar/openssl@3/3.6.0/lib -lssl -lcrypto
++Cflags: -I${includedir}
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/pkgconfig/libavutil.pc b/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/pkgconfig/libavutil.pc
+new file mode 100644
+index 0000000..382b4fd
+--- /dev/null
++++ b/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/pkgconfig/libavutil.pc
+@@ -0,0 +1,14 @@
++prefix=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/armeabi-v7a
++exec_prefix=${prefix}
++libdir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/armeabi-v7a/lib
++includedir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/armeabi-v7a/include
++
++Name: libavutil
++Description: FFmpeg utility library
++Version: 60.8.100
++Requires: 
++Requires.private: 
++Conflicts:
++Libs: -L${libdir}  -lavutil 
++Libs.private: -lm -L/opt/homebrew/Cellar/openssl@3/3.6.0/lib -lssl -lcrypto -latomic -landroid -lmediandk -pthread
++Cflags: -I${includedir}
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/pkgconfig/libswresample.pc b/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/pkgconfig/libswresample.pc
+new file mode 100644
+index 0000000..a853140
+--- /dev/null
++++ b/node_modules/react-native-audio-api/android/src/main/jniLibs/armeabi-v7a/pkgconfig/libswresample.pc
+@@ -0,0 +1,14 @@
++prefix=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/armeabi-v7a
++exec_prefix=${prefix}
++libdir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/armeabi-v7a/lib
++includedir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/armeabi-v7a/include
++
++Name: libswresample
++Description: FFmpeg audio resampling library
++Version: 6.1.100
++Requires: 
++Requires.private: libavutil >= 60.8.100
++Conflicts:
++Libs: -L${libdir}  -lswresample 
++Libs.private: -lm -latomic
++Cflags: -I${includedir}
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/libavcodec.so b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/libavcodec.so
+new file mode 100644
+index 0000000..f41cafd
+Binary files /dev/null and b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/libavcodec.so differ
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/libavformat.so b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/libavformat.so
+new file mode 100644
+index 0000000..e8cbc31
+Binary files /dev/null and b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/libavformat.so differ
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/libavutil.so b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/libavutil.so
+new file mode 100644
+index 0000000..063d8ba
+Binary files /dev/null and b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/libavutil.so differ
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/libswresample.so b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/libswresample.so
+new file mode 100644
+index 0000000..cb47dac
+Binary files /dev/null and b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/libswresample.so differ
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/pkgconfig/libavcodec.pc b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/pkgconfig/libavcodec.pc
+new file mode 100644
+index 0000000..756426d
+--- /dev/null
++++ b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/pkgconfig/libavcodec.pc
+@@ -0,0 +1,14 @@
++prefix=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86
++exec_prefix=${prefix}
++libdir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86/lib
++includedir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86/include
++
++Name: libavcodec
++Description: FFmpeg codec library
++Version: 62.11.100
++Requires: 
++Requires.private: libavutil >= 60.8.100
++Conflicts:
++Libs: -L${libdir}  -lavcodec 
++Libs.private: -pthread -lm -latomic
++Cflags: -I${includedir}
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/pkgconfig/libavformat.pc b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/pkgconfig/libavformat.pc
+new file mode 100644
+index 0000000..123b70e
+--- /dev/null
++++ b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/pkgconfig/libavformat.pc
+@@ -0,0 +1,14 @@
++prefix=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86
++exec_prefix=${prefix}
++libdir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86/lib
++includedir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86/include
++
++Name: libavformat
++Description: FFmpeg container format library
++Version: 62.3.100
++Requires: 
++Requires.private: libavcodec >= 62.11.100, libavutil >= 60.8.100
++Conflicts:
++Libs: -L${libdir}  -lavformat 
++Libs.private: -lm -latomic -lz -L/opt/homebrew/Cellar/openssl@3/3.6.0/lib -lssl -lcrypto
++Cflags: -I${includedir}
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/pkgconfig/libavutil.pc b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/pkgconfig/libavutil.pc
+new file mode 100644
+index 0000000..57d4a74
+--- /dev/null
++++ b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/pkgconfig/libavutil.pc
+@@ -0,0 +1,14 @@
++prefix=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86
++exec_prefix=${prefix}
++libdir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86/lib
++includedir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86/include
++
++Name: libavutil
++Description: FFmpeg utility library
++Version: 60.8.100
++Requires: 
++Requires.private: 
++Conflicts:
++Libs: -L${libdir}  -lavutil 
++Libs.private: -lm -L/opt/homebrew/Cellar/openssl@3/3.6.0/lib -lssl -lcrypto -latomic -landroid -lmediandk -pthread
++Cflags: -I${includedir}
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/pkgconfig/libswresample.pc b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/pkgconfig/libswresample.pc
+new file mode 100644
+index 0000000..6220450
+--- /dev/null
++++ b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86/pkgconfig/libswresample.pc
+@@ -0,0 +1,14 @@
++prefix=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86
++exec_prefix=${prefix}
++libdir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86/lib
++includedir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86/include
++
++Name: libswresample
++Description: FFmpeg audio resampling library
++Version: 6.1.100
++Requires: 
++Requires.private: libavutil >= 60.8.100
++Conflicts:
++Libs: -L${libdir}  -lswresample 
++Libs.private: -lm -latomic
++Cflags: -I${includedir}
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/libavcodec.so b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/libavcodec.so
+new file mode 100644
+index 0000000..88d0875
+Binary files /dev/null and b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/libavcodec.so differ
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/libavformat.so b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/libavformat.so
+new file mode 100644
+index 0000000..a8916e4
+Binary files /dev/null and b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/libavformat.so differ
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/libavutil.so b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/libavutil.so
+new file mode 100644
+index 0000000..e7d90ab
+Binary files /dev/null and b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/libavutil.so differ
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/libswresample.so b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/libswresample.so
+new file mode 100644
+index 0000000..d3bf1ee
+Binary files /dev/null and b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/libswresample.so differ
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/pkgconfig/libavcodec.pc b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/pkgconfig/libavcodec.pc
+new file mode 100644
+index 0000000..2510a9b
+--- /dev/null
++++ b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/pkgconfig/libavcodec.pc
+@@ -0,0 +1,14 @@
++prefix=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86_64
++exec_prefix=${prefix}
++libdir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86_64/lib
++includedir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86_64/include
++
++Name: libavcodec
++Description: FFmpeg codec library
++Version: 62.11.100
++Requires: 
++Requires.private: libavutil >= 60.8.100
++Conflicts:
++Libs: -L${libdir}  -lavcodec 
++Libs.private: -pthread -lm -latomic
++Cflags: -I${includedir}
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/pkgconfig/libavformat.pc b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/pkgconfig/libavformat.pc
+new file mode 100644
+index 0000000..1d40342
+--- /dev/null
++++ b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/pkgconfig/libavformat.pc
+@@ -0,0 +1,14 @@
++prefix=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86_64
++exec_prefix=${prefix}
++libdir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86_64/lib
++includedir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86_64/include
++
++Name: libavformat
++Description: FFmpeg container format library
++Version: 62.3.100
++Requires: 
++Requires.private: libavcodec >= 62.11.100, libavutil >= 60.8.100
++Conflicts:
++Libs: -L${libdir}  -lavformat 
++Libs.private: -lm -latomic -lz -L/opt/homebrew/Cellar/openssl@3/3.6.0/lib -lssl -lcrypto
++Cflags: -I${includedir}
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/pkgconfig/libavutil.pc b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/pkgconfig/libavutil.pc
+new file mode 100644
+index 0000000..3f11185
+--- /dev/null
++++ b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/pkgconfig/libavutil.pc
+@@ -0,0 +1,14 @@
++prefix=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86_64
++exec_prefix=${prefix}
++libdir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86_64/lib
++includedir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86_64/include
++
++Name: libavutil
++Description: FFmpeg utility library
++Version: 60.8.100
++Requires: 
++Requires.private: 
++Conflicts:
++Libs: -L${libdir}  -lavutil 
++Libs.private: -lm -L/opt/homebrew/Cellar/openssl@3/3.6.0/lib -lssl -lcrypto -latomic -landroid -lmediandk -pthread
++Cflags: -I${includedir}
+diff --git a/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/pkgconfig/libswresample.pc b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/pkgconfig/libswresample.pc
+new file mode 100644
+index 0000000..2e88d3f
+--- /dev/null
++++ b/node_modules/react-native-audio-api/android/src/main/jniLibs/x86_64/pkgconfig/libswresample.pc
+@@ -0,0 +1,14 @@
++prefix=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86_64
++exec_prefix=${prefix}
++libdir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86_64/lib
++includedir=/Users/michalsek/Documents/work/rn-audio-libs/scripts/../build/intermediate/ffmpeg/output/android/x86_64/include
++
++Name: libswresample
++Description: FFmpeg audio resampling library
++Version: 6.1.100
++Requires: 
++Requires.private: libavutil >= 60.8.100
++Conflicts:
++Libs: -L${libdir}  -lswresample 
++Libs.private: -lm -latomic
++Cflags: -I${includedir}
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/.DS_Store b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/.DS_Store
+new file mode 100644
+index 0000000..2421964
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/.DS_Store differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/.DS_Store b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/.DS_Store
+new file mode 100644
+index 0000000..5008ddf
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/.DS_Store differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/libogg.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/libogg.a
+new file mode 100644
+index 0000000..55bb360
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/libogg.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/libopus.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/libopus.a
+new file mode 100644
+index 0000000..3667555
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/libopus.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/libopusfile.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/libopusfile.a
+new file mode 100644
+index 0000000..e46d85e
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/libopusfile.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/libvorbis.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/libvorbis.a
+new file mode 100644
+index 0000000..a20a073
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/libvorbis.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/libvorbisenc.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/libvorbisenc.a
+new file mode 100644
+index 0000000..e614fb4
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/libvorbisenc.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/libvorbisfile.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/libvorbisfile.a
+new file mode 100644
+index 0000000..1bdf0fb
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/arm64-v8a/libvorbisfile.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/.DS_Store b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/.DS_Store
+new file mode 100644
+index 0000000..5008ddf
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/.DS_Store differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/libogg.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/libogg.a
+new file mode 100644
+index 0000000..76ca2d3
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/libogg.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/libopus.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/libopus.a
+new file mode 100644
+index 0000000..0a8637a
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/libopus.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/libopusfile.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/libopusfile.a
+new file mode 100644
+index 0000000..0c474cb
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/libopusfile.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/libvorbis.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/libvorbis.a
+new file mode 100644
+index 0000000..381e68a
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/libvorbis.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/libvorbisenc.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/libvorbisenc.a
+new file mode 100644
+index 0000000..42cd06b
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/libvorbisenc.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/libvorbisfile.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/libvorbisfile.a
+new file mode 100644
+index 0000000..915d5f2
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/armeabi-v7a/libvorbisfile.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/.DS_Store b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/.DS_Store
+new file mode 100644
+index 0000000..5008ddf
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/.DS_Store differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/libogg.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/libogg.a
+new file mode 100644
+index 0000000..cec5f83
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/libogg.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/libopus.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/libopus.a
+new file mode 100644
+index 0000000..a287ece
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/libopus.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/libopusfile.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/libopusfile.a
+new file mode 100644
+index 0000000..d35b623
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/libopusfile.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/libvorbis.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/libvorbis.a
+new file mode 100644
+index 0000000..6ac5437
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/libvorbis.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/libvorbisenc.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/libvorbisenc.a
+new file mode 100644
+index 0000000..4b4d4dd
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/libvorbisenc.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/libvorbisfile.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/libvorbisfile.a
+new file mode 100644
+index 0000000..0270e92
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86/libvorbisfile.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/.DS_Store b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/.DS_Store
+new file mode 100644
+index 0000000..5008ddf
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/.DS_Store differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/libogg.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/libogg.a
+new file mode 100644
+index 0000000..47cdb01
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/libogg.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/libopus.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/libopus.a
+new file mode 100644
+index 0000000..d980bfc
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/libopus.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/libopusfile.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/libopusfile.a
+new file mode 100644
+index 0000000..deaa8af
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/libopusfile.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/libvorbis.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/libvorbis.a
+new file mode 100644
+index 0000000..55f2e33
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/libvorbis.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/libvorbisenc.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/libvorbisenc.a
+new file mode 100644
+index 0000000..b077835
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/libvorbisenc.a differ
+diff --git a/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/libvorbisfile.a b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/libvorbisfile.a
+new file mode 100644
+index 0000000..db707f7
+Binary files /dev/null and b/node_modules/react-native-audio-api/common/cpp/audioapi/external/android/x86_64/libvorbisfile.a differ
+diff --git a/node_modules/react-native-audio-api/scripts/download-prebuilt-binaries.sh b/node_modules/react-native-audio-api/scripts/download-prebuilt-binaries.sh
+index 8c02001..fc997ac 100644
+--- a/node_modules/react-native-audio-api/scripts/download-prebuilt-binaries.sh
++++ b/node_modules/react-native-audio-api/scripts/download-prebuilt-binaries.sh
+@@ -1,4 +1,5 @@
+ #!/bin/bash
++export PATH="$PATH:/usr/bin:/c/Program Files/Git/usr/bin"
+ # Script to download and unzip prebuilt native binaries for React Native.
+ 
+ MAIN_DOWNLOAD_URL="https://github.com/software-mansion-labs/rn-audio-libs/releases/download"

@@ -1,0 +1,12 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:editTextBackground">@drawable/rn_edit_text_material</item>
+        <!-- Dark background from the first frame, so there is no white flash before the animated splash. -->
+        <item name="android:windowBackground">@color/splashBg</item>
+        <item name="android:statusBarColor">@color/splashBg</item>
+        <item name="android:navigationBarColor">@color/splashBg</item>
+    </style>
+
+</resources>

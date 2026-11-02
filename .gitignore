@@ -1,0 +1,12 @@
+.env
+.venv/
+node_modules/
+.wrangler/
+.dev.vars
+__pycache__/
+*.apk
+*.log
+.DS_Store
+
+# Generated icon comparison sheet
+mobile/scripts/icon-styles.png

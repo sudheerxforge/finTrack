@@ -1,0 +1,62 @@
+name: Deploy API (Cloudflare Worker)
+
+# Runs on every push to main that touches cloudflare/, or by hand from the
+# Actions tab. One-time setup is in cloudflare/README.md (3 repo secrets).
+on:
+  push:
+    branches: [main]
+    paths: ['cloudflare/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-worker
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      HAS_RESEND: ${{ secrets.RESEND_API_KEY != '' }}
+    defaults:
+      run:
+        working-directory: cloudflare
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: cloudflare/package-lock.json
+      - run: npm ci
+      - run: npm run check
+      - run: npm test
+
+      - name: Create the R2 bucket if it does not exist yet
+        run: npx wrangler r2 bucket create fintrack-data || echo "bucket already exists (or create it in the dashboard)"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: cloudflare
+          # Sets the Worker secrets from GitHub secrets on every deploy.
+          secrets: |
+            GEMINI_API_KEY
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      # Optional: enables "Forgot PIN" emails. Skipped if you haven't added the secret.
+      - name: Set email secret (optional)
+        if: env.HAS_RESEND == 'true'
+        run: echo "$RESEND_API_KEY" | npx wrangler secret put RESEND_API_KEY
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
